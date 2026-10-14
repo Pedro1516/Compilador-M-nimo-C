@@ -55,27 +55,27 @@ extern int yydebug;
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
     NUMERO = 258,                  /* NUMERO  */
-    PONTOEVIRGULA = 259,           /* PONTOEVIRGULA  */
-    ID = 260,                      /* ID  */
-    ATRIBUICAO = 261,              /* ATRIBUICAO  */
-    MAIN = 262,                    /* MAIN  */
-    INTEIRO = 263                  /* INTEIRO  */
+    RETORNO = 259,                 /* RETORNO  */
+    PONTOEVIRGULA = 260,           /* PONTOEVIRGULA  */
+    ID = 261,                      /* ID  */
+    ATRIBUICAO = 262,              /* ATRIBUICAO  */
+    MAIN = 263,                    /* MAIN  */
+    INTEIRO = 264,                 /* INTEIRO  */
+    MULTIPLICACAO = 265,           /* MULTIPLICACAO  */
+    DIVISAO = 266,                 /* DIVISAO  */
+    SOMA = 267,                    /* SOMA  */
+    SUBTRACAO = 268,               /* SUBTRACAO  */
+    ABREPARENTESES = 269,          /* ABREPARENTESES  */
+    FECHAPARENTESES = 270,         /* FECHAPARENTESES  */
+    ABRECHAVES = 271,              /* ABRECHAVES  */
+    FECHACHAVES = 272              /* FECHACHAVES  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
-{
-#line 8 "Bison/parser.y"
-
-    int numero;
-
-#line 76 "Bison/parser.tab.h"
-
-};
-typedef union YYSTYPE YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

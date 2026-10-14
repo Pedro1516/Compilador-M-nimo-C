@@ -5,17 +5,20 @@ int yylex(void);
 void yyerror(const char *s);
 %}
 
-%union{
-    int numero;
-}
 
-%token <numero> NUMERO 
-
-%token PONTOEVIRGULA ID ATRIBUICAO MAIN INTEIRO
+%token NUMERO RETORNO PONTOEVIRGULA ID ATRIBUICAO MAIN INTEIRO MULTIPLICACAO DIVISAO SOMA SUBTRACAO ABREPARENTESES FECHAPARENTESES ABRECHAVES FECHACHAVES
 
 %%
-
-comando:    ID ATRIBUICAO NUMERO PONTOEVIRGULA  {printf("%i\n", yylval.numero);};
+programa:         INTEIRO MAIN ABREPARENTESES FECHAPARENTESES ABRECHAVES principal FECHACHAVES;
+atribuicao:       INTEIRO ID ATRIBUICAO soma PONTOEVIRGULA                       
+retorno:          RETORNO soma PONTOEVIRGULA;
+soma:             soma SOMA NUMERO
+                | soma SOMA ID
+                | NUMERO
+                | ID;
+principal:        principal retorno
+                | principal atribuicao
+                | ;
 
 %%
 
@@ -24,6 +27,5 @@ void yyerror(const char *s) {
 }
 
 int main(){
-
     return yyparse();
 }
